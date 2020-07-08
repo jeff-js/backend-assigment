@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { InjectModel } from 'nestjs-typegoose';
 import { ReturnModelType, mongoose } from '@typegoose/typegoose';
 import { AgentModel } from './models/agent.model';
 import { AgentDto } from './dto/agent.dto';
+import { IssuesService } from 'src/issues/issues.service';
 
 
 @Injectable()
@@ -10,6 +11,8 @@ export class AgentsService {
   constructor(
     @InjectModel(AgentModel)
     private readonly agentModel: ReturnModelType<typeof AgentModel>,
+    @Inject(forwardRef(() => IssuesService))
+    private readonly issueService: IssuesService
   ) {}
 
   getAll = async (): Promise<AgentModel[] | null> => {
@@ -26,7 +29,9 @@ export class AgentsService {
   };
 
   asignIssue = async (id: string, issueId: string): Promise<any> => {
-    return await this.agentModel.updateOne({_id: mongoose.Types.ObjectId(id)},{ issueAsigned:  mongoose.Types.ObjectId(issueId)}, { new: false })
+    await this.agentModel.updateOne({_id: mongoose.Types.ObjectId(id)},{ issueAsigned:  mongoose.Types.ObjectId(issueId)}, { new: false })
+    await this.issueService.asignIssueManual(issueId);
+    return null;
   }
 
   unasignIssue = async (id:string) : Promise<any> => {
