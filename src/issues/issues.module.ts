@@ -9,5 +9,6 @@ import { IssueModel } from './models/issue.model';
   imports: [ConfigModule, TypegooseModule.forFeature([IssueModel])],
   controllers: [IssuesController],
   providers: [IssuesService],
+  exports: [IssuesService]
 })
 export class IssuesModule {}

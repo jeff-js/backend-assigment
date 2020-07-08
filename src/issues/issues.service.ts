@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IssueModel } from './models/issue.model';
 import { InjectModel } from 'nestjs-typegoose';
-import { ReturnModelType } from '@typegoose/typegoose';
+import { ReturnModelType, mongoose } from '@typegoose/typegoose';
 import { IssueDto } from './dto/issue.dto';
 
 @Injectable()
@@ -19,4 +19,8 @@ export class IssuesService {
     const document = new this.issueModel(body);
     return await document.save();
   };
+
+  solveIssue = async (idIssue: string): Promise<IssueModel | null> => {
+    return await this.issueModel.updateOne({_id: mongoose.Types.ObjectId(idIssue)}, {solve: true}, {new: false});
+  }
 }
