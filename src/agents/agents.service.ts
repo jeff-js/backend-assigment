@@ -16,6 +16,10 @@ export class AgentsService {
     return await this.agentModel.find();
   };
 
+  getAgentAvailable = async (): Promise<AgentModel | null> => {
+    return await this.agentModel.findOne({issueAsigned: { $exists: false }})
+  };
+
   create = async (body: AgentDto): Promise<AgentModel | null> => {
     const document = new this.agentModel(body);
     return await document.save();

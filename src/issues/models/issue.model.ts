@@ -8,4 +8,7 @@ export class IssueModel extends TimeStamps {
 
   @prop({ required: true, default: false })
   solve!: boolean;
+
+  @prop({ required: true, default: false })
+  asigned!: boolean;
 }
