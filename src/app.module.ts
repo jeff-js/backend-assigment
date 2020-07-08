@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { IssuesModule } from './issues/issues.module';
+import { AgentsModule } from './agents/agents.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -19,6 +20,7 @@ import { IssuesModule } from './issues/issues.module';
       inject: [ConfigService],
     }),
     IssuesModule,
+    AgentsModule,
   ],
   controllers: [],
   providers: [],

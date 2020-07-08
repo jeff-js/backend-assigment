@@ -4,7 +4,7 @@ Code Challenge para candidatos Backend para DocRed.
 
 ## Postam
 
-[postman]: https://documenter.getpostman.com/view/11466897/T17J9nX3?version=latest
+https://documenter.getpostman.com/view/11466897/T17J9nX3?version=latest
 
 **IMPORTANTE**: Haz un _fork_ de este repositorio para trabajar en la solución
 
