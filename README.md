@@ -1,10 +1,27 @@
 # Backend Coding Challenge
 
-Code Challenge para candidatos Backend para DocRed.
+
+## Pasos para inciar el proyecto
+
+- Clonar el proyecto -> `git clone https://github.com/jeff-js/backend-assigment.git`
+- Instalar las dependecias -> `npm i`
+- Crear un archivo `.env` o puedes clonar el archivo `.env-example`
+- Actualizar la cadena de conexión de la base de datos `MONGOBD`
+- Ejecutar el comando para correr el proyecto `nom run start:dev`
 
 ## Postam
 
 https://documenter.getpostman.com/view/11466897/T17J9nX3?version=latest
+
+
+## Extra CRON
+
+En el proyecto tambien unclui un CRON para cuando se adicionan nuevos agentes para la solucion de los problemas de la Aplicación
+
+
+# Docred
+
+Code Challenge para candidatos Backend para DocRed.
 
 **IMPORTANTE**: Haz un _fork_ de este repositorio para trabajar en la solución
 
